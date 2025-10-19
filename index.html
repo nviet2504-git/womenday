@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chúc Mừng 20/10</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            overflow: hidden;
+        }
+
+        .container {
+            max-width: 600px;
+            width: 100%;
+        }
+
+        .card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            text-align: center;
+            position: relative;
+            animation: fadeIn 1s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .qr-section {
+            margin-bottom: 30px;
+        }
+
+        .qr-code {
+            display: inline-block;
+            padding: 20px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: #e91e63;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .message-section {
+            display: none;
+            animation: slideUp 0.8s ease-out;
+        }
+
+        .message-section.active {
+            display: block;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .message {
+            font-size: 1.2em;
+            line-height: 1.8;
+            color: #333;
+            margin: 20px 0;
+            text-align: left;
+        }
+
+        .flowers {
+            font-size: 3em;
+            margin: 20px 0;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .btn {
+            background: linear-gradient(135deg, #e91e63, #f06292);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.1em;
+            border-radius: 50px;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            font-weight: bold;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(233, 30, 99, 0.4);
+        }
+
+        .instruction {
+            color: #666;
+            font-size: 0.95em;
+            margin-top: 15px;
+            font-style: italic;
+        }
+
+        .hearts {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .heart {
+            position: absolute;
+            font-size: 20px;
+            color: #e91e63;
+            animation: float 4s infinite;
+            opacity: 0;
+        }
+
+        @keyframes float {
+            0% {
+                opacity: 0;
+                transform: translateY(0) rotate(0deg);
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(-100vh) rotate(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="hearts" id="hearts"></div>
+    
+    <div class="container">
+        <div class="card">
+            <div class="qr-section" id="qrSection">
+                <h1>🌸 Chúc Mừng 20/10 🌸</h1>
+                <div class="flowers">🌹💐🌺</div>
+                <div class="qr-code">
+                    <canvas id="qrCanvas"></canvas>
+                </div>
+                <p class="instruction">Quét mã QR để nhận lời chúc đặc biệt</p>
+                <button class="btn" onclick="showMessage()">Hoặc nhấn vào đây</button>
+            </div>
+
+            <div class="message-section" id="messageSection">
+                <h1>💕 Gửi Em Yêu 💕</h1>
+                <div class="flowers">🌹🌹🌹</div>
+                <div class="message">
+                    <p>Nhân ngày Phụ nữ Việt Nam 20/10,</p>
+                    <p>Anh muốn gửi đến em vài lời chúc nhỏ nhỏ, nhưng chân thành thật lòng:</p>
+                    <br>
+                    <p>🌸 Chúc em luôn xinh đẹp và rạng rỡ như hiện tại (hoặc hơn, nếu điều đó có thể 😌)</p>
+                    <p>💖 Chúc em mỗi ngày đều vui vẻ và được yêu thương đúng cách</p>
+                    <p>🌺 Chúc em đạt được những điều em mong muốn trong công việc và cuộc sống</p>
+                    <p>✨ Và… cảm ơn em đã khiến ngày của anh thú vị hơn từ khi anh bắt đầu biết đến em</p>
+                    <br>
+                    <p style="text-align: center; font-weight: bold; color: #e91e63; font-size: 1.2em;">
+                        Hy vọng anh sẽ có cơ hội mang thêm nhiều niềm vui đến cho em 💕
+                    </p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <script>
+        const currentUrl = window.location.href + '?show=message';
+        
+        const qr = new QRCode(document.getElementById('qrCanvas'), {
+            text: currentUrl,
+            width: 200,
+            height: 200,
+            colorDark: '#e91e63',
+            colorLight: '#ffffff',
+            correctLevel: QRCode.CorrectLevel.H
+        });
+
+        function showMessage() {
+            document.getElementById('qrSection').style.display = 'none';
+            document.getElementById('messageSection').classList.add('active');
+            createHearts();
+        }
+
+        function createHearts() {
+            const heartsContainer = document.getElementById('hearts');
+            for (let i = 0; i < 15; i++) {
+                setTimeout(() => {
+                    const heart = document.createElement('div');
+                    heart.className = 'heart';
+                    heart.innerHTML = '❤️';
+                    heart.style.left = Math.random() * 100 + '%';
+                    heart.style.animationDelay = Math.random() * 2 + 's';
+                    heart.style.animationDuration = (Math.random() * 3 + 3) + 's';
+                    heartsContainer.appendChild(heart);
+                    
+                    setTimeout(() => heart.remove(), 7000);
+                }, i * 200);
+            }
+        }
+
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.get('show') === 'message') {
+            showMessage();
+        }
+    </script>
+</body>
+</html>
