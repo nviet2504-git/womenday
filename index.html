@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chúc Mừng 20/10</title>
+
+    <!-- Import Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
     <style>
         * {
             margin: 0;
@@ -12,7 +16,7 @@
         }
 
         body {
-            font-family: 'Georgia', serif;
+            font-family: 'Poppins', sans-serif;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
             display: flex;
@@ -173,14 +177,15 @@
                 <h1>🌸 Chúc Mừng 20/10 🌸</h1>
                 <div class="flowers">🌹💐🌺</div>
                 <div class="qr-code">
-                    <canvas id="qrCanvas"></canvas>
+                    <!-- ĐÃ ĐỔI CANVAS THÀNH DIV -->
+                    <div id="qrCanvas"></div>
                 </div>
                 <p class="instruction">Quét mã QR để nhận lời chúc đặc biệt</p>
                 <button class="btn" onclick="showMessage()">Hoặc nhấn vào đây</button>
             </div>
 
             <div class="message-section" id="messageSection">
-                <h1>💕 Gửi Em Yêu 💕</h1>
+                <h1>💕 Gửi Em 💕</h1>
                 <div class="flowers">🌹🌹🌹</div>
                 <div class="message">
                     <p>Nhân ngày Phụ nữ Việt Nam 20/10,</p>
@@ -194,7 +199,6 @@
                     <p style="text-align: center; font-weight: bold; color: #e91e63; font-size: 1.2em;">
                         Hy vọng anh sẽ có cơ hội mang thêm nhiều niềm vui đến cho em 💕
                     </p>
-
                 </div>
             </div>
         </div>
